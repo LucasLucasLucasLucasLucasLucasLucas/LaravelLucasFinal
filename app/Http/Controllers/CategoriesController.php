@@ -38,7 +38,7 @@ class CategoriesController extends Controller
         $category->category_name = $request->categories;
         $category->save();
         
-        Session::flash('success', 'A new company has been created');
+        Session::flash('success', 'A new category has been created');
 
         
         return redirect()->route('categories.index');
@@ -49,7 +49,7 @@ class CategoriesController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
     }
 
     /**
@@ -57,7 +57,10 @@ class CategoriesController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = \App\Models\Categories::find($id);
+        if (!$category) dd("Category Wasn't found");
+
+        return view('categories.edit')->with('category', $category);
     }
 
     /**
@@ -65,7 +68,20 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $rules = [
+            'categories' => 'required|max:50|unique:categories,category_name,'.$id
+        ];
+        $validator = $this->validate($request, $rules);
+        $category = \App\Models\Categories::find($id);
+        if (!$category) dd("no category found");
+
+        $category->category_name = $request->categories;
+        $category->save();
+
+        Session::flash('success', 'The category has been updated! ');
+
+        
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -73,6 +89,15 @@ class CategoriesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = \App\Models\Categories::find($id);
+        if (!$category) {
+            Session::flash('error', 'No Category found.');
+        } else {
+            $category->delete();
+            Session::flash('success in deletion', 'Category is now gone');
+        }
+        return redirect()->route('categories.index');
     }
+
+    public function categoryDelete(string $id){ }
 }

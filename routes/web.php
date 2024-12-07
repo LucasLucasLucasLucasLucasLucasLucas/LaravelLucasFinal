@@ -12,5 +12,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('categories', App\Http\Controllers\CategoriesController::class);
 
 
-Route::get('/categories/delete/{id}', [App\Http\Controllers\CategoriesController::class, 'confirmDelete']) 
-           ->name('companies.confirmDelete');
+Route::get('/categories/delete/{id}', [App\Http\Controllers\CategoriesController::class, 'categoryDelete']) ->name('companies.categoryDelete');
