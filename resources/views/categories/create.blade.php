@@ -12,7 +12,7 @@
                             @csrf
                             <label for="category">Category</label>
                             <!-- You can either do old cmd , post, or store the actual category. Old seems like the fastest and safest method. -->
-                            <input type="text" class="form-control" name="categories" title="category" value="{{old('categories')}}" />
+                            <input type="text" class="form-control" name="categories" title="categories" value="{{old('categories')}}" />
                             <input type="submit" value="Add Category" 
                                    class="btn btn-primary btn-lg btn-block" style="margin-top:20px">
                         </form>
