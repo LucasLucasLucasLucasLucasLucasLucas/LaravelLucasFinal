@@ -14,7 +14,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <label for="company">Category</label>
-                                    <input type="text" class="form-control" name="categories" title="categories" value="{{ old('categories', $category->category_name) }}"/>
+                                    <input type="text" class="form-control" name="category_name" title="category_name" value="{{ old('category_name', $category->category_name) }}"/>
                             
                                 </div>
                             </div>

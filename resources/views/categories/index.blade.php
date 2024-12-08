@@ -38,6 +38,7 @@
                                         <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-success btn-sm">Edit</a>
                                     </div>
                                     <div style="float:left; margin-left:5px;">
+                                        <!--
                                         <form method="post" action="/categories/{{ $category->id }}"
                                             onsubmit="return confirm('Delete Category? Are you sure?')"
                                         >
@@ -46,6 +47,7 @@
                                             <input type="submit" name="submit" value="Delete" 
                                                    class="btn btn-sm btn-danger btn-block"/>
                                         </form>
+                                    -->
                                     </div>
                                 
                                 </td>

@@ -12,4 +12,8 @@ class Categories extends Model
 
     protected $table = "categories";
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
+
+    public function categories() {
+        return $this->hasMany('App\Models\Items', 'id', 'category_id');
+    }
 }
