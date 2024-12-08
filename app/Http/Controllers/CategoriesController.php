@@ -30,12 +30,12 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'categories' => 'required|max:50|unique:categories,category_name'
+            'category_name' => 'required|max:50|unique:categories,category_name'
         ];
         $validator = $this->validate($request, $rules);
 
         $category = new \App\Models\categories();
-        $category->category_name = $request->categories;
+        $category->category_name = $request->category_name;
         $category->save();
         
         Session::flash('success', 'A new category has been created');
@@ -69,13 +69,13 @@ class CategoriesController extends Controller
     public function update(Request $request, string $id)
     {
         $rules = [
-            'categories' => 'required|max:50|unique:categories,category_name,'.$id
+            'category_name' => 'required|max:50|unique:categories,category_name'
         ];
         $validator = $this->validate($request, $rules);
         $category = \App\Models\Categories::find($id);
         if (!$category) dd("no category found");
 
-        $category->category_name = $request->categories;
+        $category->category_name = $request->category_name;
         $category->save();
 
         Session::flash('success', 'The category has been updated! ');
@@ -89,6 +89,7 @@ class CategoriesController extends Controller
      */
     public function destroy(string $id)
     {
+        /*
         $category = \App\Models\Categories::find($id);
         if (!$category) {
             Session::flash('error', 'No Category found.');
@@ -97,7 +98,9 @@ class CategoriesController extends Controller
             Session::flash('success in deletion', 'Category is now gone');
         }
         return redirect()->route('categories.index');
+        */
     }
-
+    /*
     public function categoryDelete(string $id){ }
+   */
 }
