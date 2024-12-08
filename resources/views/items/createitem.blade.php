@@ -23,7 +23,9 @@
                             
                             
                             <label for="title">Title</label>
+                            
                             <input type="text" class="form-control" name="title" title="title" value="{{old('title')}}" />
+                            
 
                             <label for="description">description</label>
                             <input type="text" class="form-control" name="description" title="description" value="{{old('description')}}" />
@@ -37,11 +39,12 @@
                             <label for="sku">sku</label>
                             <input type="text" class="form-control" name="sku" title="sku" value="{{old('sku')}}" />
                             
-                            <!-- Picture will be edited-->
+                            
                             <label for="picture">picture</label>
                             <input type="file" class="form-control" name="picture" title="picture" />
                             
                             <input type="submit" value="Add item" class="btn btn-primary btn-lg btn-block" style="margin-top:20px">
+                            
                         </form>
 
                         

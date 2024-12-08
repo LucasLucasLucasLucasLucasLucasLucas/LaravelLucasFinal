@@ -9,11 +9,11 @@
                     <div class="card-body">
                         <form method="POST" action="/categories/{{ $category->id }}">
                             @csrf
-                            <input type="hidden" name="_method" value="PUT"/>
+                            <input type="hidden" name="_method" value="PATCH"/>
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <label for="company">Category</label>
+                                    <label for="category_name">Category</label>
                                     <input type="text" class="form-control" name="category_name" title="category_name" value="{{ old('category_name', $category->category_name) }}"/>
                             
                                 </div>
