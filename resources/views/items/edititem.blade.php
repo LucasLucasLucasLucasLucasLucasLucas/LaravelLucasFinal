@@ -9,6 +9,7 @@
                     <div class="card-body">
                         <form method="POST" enctype="multipart/form-data" action="/items/{{ $item->id }} ">
                             @csrf
+                            <input type="hidden" name="_method" value="PATCH"/>
                             <label for="category_id">Category: </label>
                             <!-- You can either do old cmd , post, or store the actual category. Old seems like the fastest and safest method. -->
                             <!-- Foreach dropdown-->
@@ -23,7 +24,11 @@
                             <!-- {{ old('category_name', $category->category_name) }}-->
                             <label for="title">Title</label>
                             <input type="text" class="form-control" name="title" title="title" value="{{old('title', $item->title)}}" />
+                            
 
+
+
+                            
                             <label for="description">description</label>
                             <input type="text" class="form-control" name="description" title="description" value="{{old('description', $item->description)}}" />
 

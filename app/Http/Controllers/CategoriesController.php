@@ -69,7 +69,7 @@ class CategoriesController extends Controller
     public function update(Request $request, string $id)
     {
         $rules = [
-            'category_name' => 'required|max:50|unique:categories,category_name'
+            'category_name' => 'required|max:50|unique:categories,category_name'.$id
         ];
         $validator = $this->validate($request, $rules);
         $category = \App\Models\Categories::find($id);
