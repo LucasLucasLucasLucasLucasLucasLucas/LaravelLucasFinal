@@ -186,7 +186,5 @@ class ItemsController extends Controller
         return redirect()->route('items.index');
         
     }
-    public function itemsDelete(string $id) {
-        Session::flash('js_message', 'hi');
-    }
+    public function itemsDelete(string $id) {}
 }
