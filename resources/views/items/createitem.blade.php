@@ -13,10 +13,11 @@
                             <label for="category_id">Category: </label>
                             <!-- You can either do old cmd , post, or store the actual category. Old seems like the fastest and safest method. -->
                             <!-- Foreach dropdown-->
+                            <!-- Use the MR,mrs, dr example from php notes and do some inline php style combined with OLD.-->
                             <select name="category_id" class="form-control" title="category_id">
                                 <option value="">Pick a category</option>
                                 @foreach($categories as $category) 
-                                    <option value="{{$category->id}}"> {{$category->category_name}}</option>
+                                    <option value="{{$category->id}}" <?php if (old('category_id') == $category->id) { echo 'selected';}?>> {{$category->category_name}}</option>
                                 @endforeach
                             </select>
                             
