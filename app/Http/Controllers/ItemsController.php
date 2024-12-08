@@ -12,7 +12,8 @@ class ItemsController extends Controller
      */
     public function index()
     {
-        
+        $items = \App\Models\Items::all()->sortBy('item');
+        return view('items.indexitem')->with('items', $items);
     }
 
     /**
@@ -81,7 +82,13 @@ class ItemsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $items = \App\Models\Items::find($id);
+        if (!$items) dd("Item Wasn't found");
+
+        $categories = \App\Models\categories::all();
+  
+
+        return view('items.edititem')->with('item', $items)->with('categories', $categories);
     }
 
     /**
@@ -97,6 +104,15 @@ class ItemsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
+        $items = \App\Models\Items::find($id);
+        if (!$items) {
+            Session::flash('error', 'No Item found.');
+        } else {
+            $items->delete();
+            Session::flash('success in deletion', 'Item is now gone');
+        }
+        return redirect()->route('items.index');
+        
     }
 }
